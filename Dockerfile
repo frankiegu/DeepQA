@@ -7,6 +7,10 @@ FROM python:3.5.2
 RUN \
   apt-get -qq -y update && apt-get -y install unzip
 
+RUN mkdir ~/.pip
+RUN echo "[global]" >  ~/.pip/pip.conf
+RUN echo "index-url = https://pypi.tuna.tsinghua.edu.cn/simple" >>  ~/.pip/pip.conf
+
 RUN  \
   pip3 install -U nltk \
   tqdm \

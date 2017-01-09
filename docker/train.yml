@@ -3,12 +3,13 @@ services:
   train_2:
     image: deepqa:latest
     working_dir: /root/DeepQA
-    command: [python, -u, main.py, --numEpochs, '30']
+    command: [python, -u, main.py, --numEpochs, '10']
     #command: [python, -u, main.py, --test]
     volumes:
-      - ~/deepQA/logs:/root/DeepQA/chatbot_website/logs
-      - ~/deepQA/save:/root/DeepQA/save
-      - ~/deepQA/data:/root/DeepQA/data
+      - /finder/py_proj/chatbot/DeepQA/chatbot_website/logs:/root/DeepQA/chatbot_website/logs
+      - /finder/py_proj/chatbot/DeepQA/save:/root/DeepQA/save
+      - /finder/py_proj/chatbot/DeepQA/data:/root/DeepQA/data
+    # user: "1000"
     #depends_on:
     #  - redis
   #redis:

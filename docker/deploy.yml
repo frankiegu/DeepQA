@@ -3,13 +3,13 @@
 version: '2'
 services:
   web:
-    image: deepqa:latest
+    build: ..
     ports:
       - "8000:8000"
     volumes:
-      - ~/deepQA/logs:/root/DeepQA/chatbot_website/logs
-      - ~/deepQA/save:/root/DeepQA/save
-      - ~/deepQA/data:/root/DeepQA/data
+      - /finder/py_proj/chatbot/DeepQA/chatbot_website/logs:/root/DeepQA/chatbot_website/logs
+      - /finder/py_proj/chatbot/DeepQA/save:/root/DeepQA/save
+      - /finder/py_proj/chatbot/DeepQA/data:/root/DeepQA/data
     depends_on:
       - redis
   redis:
